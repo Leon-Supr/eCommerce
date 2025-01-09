@@ -1,13 +1,15 @@
 import Header from "./components/Header/Header.jsx"
-import Home from "./pages/Home.jsx"
-
+import RoutesIndex from '@/routes/RoutesIndex'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
 
   return (
     <>
-      <Header />
-      <Home />
+      <BrowserRouter>
+        <Header />
+        <RoutesIndex />
+      </BrowserRouter>
     </>
   )
 }
