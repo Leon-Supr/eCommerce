@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.scss';
-// import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../../assets/icon.png'
 
 const Header = () => {
@@ -16,27 +16,27 @@ const Header = () => {
 
                 <ul className='header__nav-list'>
                     <li className='header__list-item'>
-                        <a
+                        <NavLink
                             className={({ isActive }) => linkIsActive(isActive)}
                             to="/"
-                        >Home</a>
+                        >Home</NavLink>
                     </li>
                     <li className='header__list-item'>
-                        <a href="" className={({ isActive }) => linkIsActive(isActive)} to="/dashboard">Dashboard</a>
+                        <NavLink className={({ isActive }) => linkIsActive(isActive)} to="/dashboard">Dashboard</NavLink>
                     </li>
                     <li className='header__list-item'>
-                        <a href="" className={({ isActive }) => linkIsActive(isActive)} to="/secret">Secret</a>
+                        <NavLink className={({ isActive }) => linkIsActive(isActive)} to="/secret">Secret</NavLink>
                     </li>
                     <li className='header__list-item'>
-                        <a href="" className="header__item-link" to="/"
-                        >Logout</a>
+                        <NavLink className="header__item-link" to="/logout"
+                        >Logout</NavLink>
                     </li>
                     {/* Si Auth es false, obvio va a pedir sign up y login  */}
                     <li className='header__list-item'>
-                        <a href="" className={({ isActive }) => linkIsActive(isActive)} to="/login">Login</a>
+                        <NavLink className={({ isActive }) => linkIsActive(isActive)} to="/login">Login</NavLink>
                     </li>
                     <li className='header__list-item'>
-                        <a href="" className={({ isActive }) => linkIsActive(isActive)} to="/signup">Sign Up</a>
+                        <NavLink className={({ isActive }) => linkIsActive(isActive)} to="/signup">Sign Up</NavLink>
                     </li>
 
                 </ul>
