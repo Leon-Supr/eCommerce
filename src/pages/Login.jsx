@@ -18,7 +18,7 @@ const Login = () => {
             <input
               type="email"
               className="form-control"
-              id="floatingInput"
+              id="floatingInput"  
               placeholder="name@example.com"
             />
             <label htmlFor="floatingInput">Email address</label>
