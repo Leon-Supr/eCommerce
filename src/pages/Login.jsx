@@ -1,4 +1,6 @@
 import React from 'react'
+import '@/styles/form.css'
+import logo from '@/assets/icon.png'
 
 const Login = () => {
   return (
@@ -8,7 +10,7 @@ const Login = () => {
         <form>
           <img
             className="mb-4"
-            src="/docs/5.3/assets/brand/bootstrap-logo.svg"
+            src={logo}
             alt=""
             width={72}
             height={57}
@@ -31,17 +33,6 @@ const Login = () => {
               placeholder="Password"
             />
             <label htmlFor="floatingPassword">Password</label>
-          </div>
-          <div className="form-check text-start my-3">
-            <input
-              className="form-check-input"
-              type="checkbox"
-              defaultValue="remember-me"
-              id="flexCheckDefault"
-            />
-            <label className="form-check-label" htmlFor="flexCheckDefault">
-              Remember me
-            </label>
           </div>
           <button className="btn btn-primary w-100 py-2" type="submit">
             Sign in
