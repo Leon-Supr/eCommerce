@@ -2,10 +2,11 @@ import logo from '@/assets/icon.png'
 import '@/styles/form.css'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import { registerUserService } from '@/service/userService'
 
 const Register = () => {
 
-  const navigate = useNavigate()
+  const navigate = useNavigate() //Me permite cambiar la ruta de manera programtica, no con un enlace
 
   const {
     register,
@@ -21,7 +22,6 @@ const Register = () => {
       }
     } catch (error) {
       console.log(error);
-
     }
   }
 
