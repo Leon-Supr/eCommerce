@@ -1,6 +1,6 @@
 import logo from '@/assets/icon.png'
 import '@/styles/form.css'
-import {useForm} from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
@@ -15,13 +15,13 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     try {
-      const {status} = await registerUserService(data)
-      if (status === 201){
+      const { status } = await registerUserService(data)
+      if (status === 201) {
         navigate('/login')
       }
     } catch (error) {
       console.log(error);
-      
+
     }
   }
 
@@ -39,6 +39,7 @@ const Register = () => {
             name='first_name'
             {...register('first_name', { required: true })} //Para registrar, se usa el name
           />
+          {errors.first_name && <span>This field is required</span>}
           <label htmlFor='first_name'>First Name</label>
         </div>
 
@@ -50,6 +51,7 @@ const Register = () => {
             name='last_name'
             {...register('last_name', { required: true })}
           />
+          {errors.last_name && <span>This field is required</span>}
           <label htmlFor='last_name'>Last Name</label>
         </div>
 
@@ -60,9 +62,10 @@ const Register = () => {
             name='gender'
             {...register('gender', { required: true })}
           >
-            <option value=''>Choose...</option>
+            <option value='NA'>Choose...</option>
             <option value='M'>Male</option>
             <option value='F'>Female</option>
+            <option value='Other'>Other</option>
           </select>
           <label htmlFor='gender'>Gender</label>
         </div>
@@ -75,6 +78,7 @@ const Register = () => {
             name='email'
             {...register('email', { required: true })}
           />
+          {errors.email && <span>This field is required</span>}
           <label htmlFor='email'>Email address</label>
         </div>
 
@@ -86,6 +90,7 @@ const Register = () => {
             name='password'
             {...register('password', { required: true })}
           />
+          {errors.password && <span>This field is required</span>}
           <label htmlFor='password'>Password</label>
         </div>
 

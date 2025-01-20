@@ -5,7 +5,6 @@ import logo from '@/assets/icon.png'
 const Login = () => {
   return (
     <>
-      <h1>Login</h1>
       <main className="form-signin w-100 m-auto">
         <form>
           <img
@@ -37,7 +36,7 @@ const Login = () => {
           <button className="btn btn-primary w-100 py-2" type="submit">
             Sign in
           </button>
-          <p className="mt-5 mb-3 text-body-secondary">© 2017–2024</p>
+          <p className='mt-5 mb-3 text-muted'>Tienda E© 2017–2025</p>
         </form>
       </main>
 
