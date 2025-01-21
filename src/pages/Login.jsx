@@ -2,8 +2,12 @@ import React from 'react'
 import '@/styles/form.css'
 import logo from '@/assets/icon.png'
 import { useForm } from 'react-hook-form'
+import { loginUserService } from '@/service/userService'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+
+  const navigate = useNavigate()
 
   const {
     register,
@@ -11,7 +15,17 @@ const Login = () => {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const { status } = await loginUserService(data)
+      if (status === 200) {
+        console.log(status);
+        navigate('/dashboard')
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 
   return (
@@ -26,28 +40,28 @@ const Login = () => {
             height={57}
           />
           <h1 className="h3 mb-3 fw-normal">Please login</h1>
-          
+
           <div className="form-floating">
             <input
               type="email"
               className="form-control"
-              id="floatingInput"  
+              id="floatingInput"
               placeholder="name@example.com"
-              {...register('loginEmail', { required: true })} //El register debe ir dentro del input, para que sepa cuál se registrará 
+              {...register('email', { required: true })} //El register debe ir dentro del input, para que sepa cuál se registrará 
             />
-            {errors.loginEmail && <span>This field is required</span>}
+            {errors.email && <span>This field is required</span>}
             <label htmlFor="floatingInput">Email address</label>
           </div>
-          
+
           <div className="form-floating">
             <input
               type="password"
               className="form-control"
               id="floatingPassword"
               placeholder="Password"
-              {...register('loginPassword', { required: true })}
+              {...register('password', { required: true })}
             />
-            {errors.loginPassword && <span>This field is required</span>}
+            {errors.password && <span>This field is required</span>}
             <label htmlFor="floatingPassword">Password</label>
           </div>
           <button className="btn btn-primary w-100 py-2" type="submit">
