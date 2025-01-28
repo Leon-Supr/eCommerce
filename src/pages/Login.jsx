@@ -15,11 +15,11 @@ const Login = () => {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (formData) => {
     try {
-      const { status } = await loginUserService(data)
-      if (status === 200) {
-        console.log(status);
+      const { status, data } = await loginUserService(formData)
+      if (status === 200) { // 200 porque es exitosa la respuesta, 201 es creado
+        window.localStorage.setItem('tokenson', data.token) // Guarda el token en localStorage, aún si se cierra el navegador, permanece
         navigate('/dashboard')
       }
     } catch (error) {
