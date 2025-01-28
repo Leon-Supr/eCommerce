@@ -31,7 +31,7 @@ function AuthProvider({ children }) {
             setIsAuth(true)
             setUserPayload(payload)
         }
-    }, [])
+    }, [token, payload])
 
 
     return (
@@ -41,4 +41,4 @@ function AuthProvider({ children }) {
     )
 }
 
-export default AuthContext
+export default AuthProvider
