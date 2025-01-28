@@ -19,7 +19,7 @@ const Login = () => {
     try {
       const { status, data } = await loginUserService(formData)
       if (status === 200) { // 200 porque es exitosa la respuesta, 201 es creado
-        window.localStorage.setItem('tokenson', data.token) // Guarda el token en localStorage, aún si se cierra el navegador, permanece
+        window.localStorage.setItem('token', data.token) // Guarda el token en localStorage, aún si se cierra el navegador, permanece
         navigate('/dashboard')
       }
     } catch (error) {
